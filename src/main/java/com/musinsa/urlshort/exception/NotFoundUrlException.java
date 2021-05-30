@@ -8,6 +8,7 @@ public class NotFoundUrlException extends RuntimeException {
 
     public NotFoundUrlException(){
         super(MESSAGE);
-        log.error(MESSAGE);
     }
+
+
 }
