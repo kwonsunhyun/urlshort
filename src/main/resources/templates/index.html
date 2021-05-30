@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>URL 축약</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<br>
+<H2>URL 축약 페이지</H2>
+
+<p>Welcome!!</p>
+<th:block layout:fragment="content">
+    <form action="#" th:action="@{/home}" method="post"/>
+    <input type="text" th:name="requrl"/>
+    <button type="submit">확인</button>
+    </form>
+    <br>
+    <div class="panel"><H1>축약 URL : <p th:text="${geturl}" /></h1></div>
+</th:block>
+</body>
+</html>
+
