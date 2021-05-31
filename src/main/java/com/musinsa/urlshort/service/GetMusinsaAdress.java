@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.Optional;
 
+/**
+ * @package : service
+ * @name : pmpro
+ * @description : service
+ **/
 @Slf4j
 @Service
 public class GetMusinsaAdress implements MusinsaService {
@@ -20,6 +25,12 @@ public class GetMusinsaAdress implements MusinsaService {
     @Autowired
     private Base62 base62;
 
+    /**
+     * 사용자로부터 입력받은 URL주소를 DB에 저장 후
+     * 해당 ID 값을 Base62 인코딩
+     * @param req_url 요청주소
+     * @return String 축약된 URL주소
+     */
     @Override
     public String getShortUrlAdress(String req_url) {
 
@@ -27,7 +38,6 @@ public class GetMusinsaAdress implements MusinsaService {
 
         String GetFromEncoding = "";
 
-        /*요청 주소가 존재하는 경우 ID를 인코딩하여 전달*/
         if(urlShort.isPresent()){
             urlShort.get().setCnt(urlShort.get().getCnt()+1);
             urlRepository.save(urlShort.get());
@@ -43,7 +53,11 @@ public class GetMusinsaAdress implements MusinsaService {
     }
 
 
-    /* 유입된 주소를 디코딩하여 ID를 획득하여 원 주소를 획득 */
+    /**
+     * 사용자에게 입력받은 축약주소를 이용하여 원 주소를 획득
+     * @param  req_url  축약된 주소 String
+     * @return 원 주소 String
+     */
     @Override
     @ExceptionHandler(value = NotFoundUrlException.class)
     public String getOriUrlAdress(String req_url) {

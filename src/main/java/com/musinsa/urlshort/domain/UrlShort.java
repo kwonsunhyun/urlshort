@@ -3,6 +3,11 @@ package com.musinsa.urlshort.domain;
 import lombok.*;
 import javax.persistence.*;
 
+/**
+ * @package : domain
+ * @name : pmpro
+ * @description : Entity Dto
+ **/
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor

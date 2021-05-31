@@ -2,6 +2,7 @@ package com.musinsa.urlshort.util;
 
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class Base62 {
 
@@ -9,6 +10,11 @@ public class Base62 {
     static final int DEFAULT_VAL = 100000000;
     static final char[] BASE62 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
 
+    /**
+     * BASE62 인코딩
+     * @param value
+     * @return Base62 Encoding
+     */
     public static String encoding(int value) {
         final StringBuilder sb = new StringBuilder();
         value = value + DEFAULT_VAL;
@@ -20,6 +26,11 @@ public class Base62 {
         return sb.toString();
     }
 
+    /**
+     * BASE62 디코딩
+     * @param value
+     * @return Base62 Decoding
+     */
     public static int decoding(String value) {
         int result=0;
         int power=1;

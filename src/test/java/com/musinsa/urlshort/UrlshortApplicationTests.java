@@ -14,6 +14,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
+
+/**
+ * @package : urlshort
+ * @name : pmpro
+ * @description : 통합테스트
+ **/
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @Slf4j

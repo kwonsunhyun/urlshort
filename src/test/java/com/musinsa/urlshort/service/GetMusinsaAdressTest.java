@@ -16,6 +16,11 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
+/**
+ * @package : service
+ * @name : pmpro
+ * @description : service Unit Test
+ **/
 
 @RunWith(SpringRunner.class)
 @ExtendWith(MockitoExtension.class)
@@ -48,7 +53,6 @@ public class GetMusinsaAdressTest {
         //then
         Optional<UrlShort> getFromDb=urlRepository.findById(idfromdecoding);
 
-        System.out.println("###### getFromDb:"+getFromDb.get().getUrl());
         assertEquals(newUrl.getUrl(),getFromDb.get().getUrl());
 
     }
@@ -72,11 +76,7 @@ public class GetMusinsaAdressTest {
         //then
         String getOriUrl=getMusinsaAdress.getOriUrlAdress(getShortUrl);
         assertEquals(newUrl.getUrl(),getOriUrl);
-
-
     }
-
-
 
     private UrlShort createUrl(){
         UrlShort urlShort = new UrlShort();

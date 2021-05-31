@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+* @package : urlshort
+* @name : pmpro
+* @description : Api 컨트롤러 구현
+**/
 @Slf4j
 @RestController
 public class ApiController {
@@ -17,6 +22,11 @@ public class ApiController {
     @Autowired
     private MusinsaService musinsaService;
 
+    /**
+     * Post 요청으로 들어온 URL주소를 축약된 형태로 응답합니다.
+     * @param searchParam Json
+     * @return 축약주소 String
+     */
     @PostMapping(value = "/getUrl")
     public String GetShortUrl(@RequestBody SearchParam searchParam){
         String GetFromBodyUrl=searchParam.getReq_url();
@@ -29,6 +39,12 @@ public class ApiController {
     }
 
 
+    /**
+     * Get 요청으로 들어온 축약URL주소를 원 주소로 Redirect 합니다.
+     * @param response
+     * @param requrl String
+     * @throws IOException
+     */
     @GetMapping("/{requrl}")
     public void GoUrl(HttpServletResponse response, @PathVariable String requrl) throws IOException {
         String GetUrlAdress = musinsaService.getOriUrlAdress(requrl);

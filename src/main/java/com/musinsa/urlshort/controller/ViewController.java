@@ -9,11 +9,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+/**
+ * @package : urlshort
+ * @name : pmpro
+ * @description : View 컨트롤러 구현
+ **/
 @Controller
 public class ViewController {
     @Autowired
     private MusinsaService musinsaService;
 
+    /**
+     * Post 요청시 index.html 로 응답합니다.
+     * @param requrl
+     * @param model
+     * @return
+     */
     @PostMapping("/home")
     public String main(@RequestParam String requrl, Model model){
         UrlUtil urlUtil = new UrlUtil();

@@ -6,6 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * @package : repository
+ * @name : pmpro
+ * @description : repository
+ **/
 @Repository
 public interface UrlRepository extends JpaRepository<UrlShort, Integer> {
     Optional<UrlShort> findByUrl(String req_url);
